@@ -14,7 +14,7 @@ public class GenericRepository<T> : IRepository<T> where T : EntityBase, new()
 
     private readonly object _lockObject = new();
     private readonly object _holderLock = new();
-    private readonly string _fileName = $"Data\\{typeof(T).Name}s.json";
+    private readonly string _fileName = Path.Combine("Data", $"{typeof(T).Name}s.json");
 
     public GenericRepository(ICurrentUser currentUser)
     {
