@@ -23,6 +23,8 @@ In the world of software development, having access to reliable and versatile AP
 
 ### Endpoints:
 
+![image](https://github.com/muminvarici/fake-api/assets/7013177/039de2c9-180b-4e3c-94ec-8ac299a6a0f5)
+
 - **GET /api/v1/Todos:**
   - Retrieves a list of todos in both JSON and XML formats.
 
@@ -74,6 +76,14 @@ In the world of software development, having access to reliable and versatile AP
 
 3. **Make Requests:**
    - Use your favorite HTTP client or tool to make requests to the FakeApi endpoints. Specify the desired content type (JSON or XML) in the request headers.
+
+`curl --location 'https://beerealm.com:7163/api/v1/Users/1/todos' \
+--header 'accept: application/xml'`
+
+![image](https://github.com/muminvarici/fake-api/assets/7013177/a0240998-7c24-440b-84dc-83594f471687)
+
+
+![image](https://github.com/muminvarici/fake-api/assets/7013177/2d93bae6-ff8f-487a-8cfa-9f162d7a3c8b)
 
 4. **Retrieve Modified Data:**
    - Take advantage of the data storage feature by retrieving modified data for each IP within the 30-minute window.
