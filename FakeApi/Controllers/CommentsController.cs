@@ -4,35 +4,35 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace FakeApi.Controllers;
 
-public class AlbumController : CrudControllerApiBase<Album>
+public class CommentsController : CrudControllerApiBase<Comment>
 {
-    public AlbumController(IRepository<Album> repository) : base(repository)
+    public CommentsController(IRepository<Comment> repository) : base(repository)
     {
     }
 
     /// <summary>
-    /// Create a Album
+    /// Create a Comment
     /// </summary>
     /// <param name="record"></param>
     /// <returns></returns>
     [HttpPost]
-    [ProducesResponseType(typeof(Album), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(Comment), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public override IActionResult Create([FromBody]Album record)
+    public override IActionResult Create([FromBody]Comment record)
     {
         var item = Repository.Create(record);
         if (item == null)
             return NotFound();
-        return Created($"example.com/{nameof(Album)}s/{item.Id}", item);
+        return Created($"example.com/{nameof(Comment)}s/{item.Id}", item);
     }
 
     /// <summary>
-    /// Get Album by its id
+    /// Get Comment by its id
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
     [HttpGet("{id:int}")]
-    [ProducesResponseType(typeof(Album), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(Comment), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public override IActionResult Get([FromRoute]int id)
     {
@@ -43,7 +43,7 @@ public class AlbumController : CrudControllerApiBase<Album>
     }
 
     /// <summary>
-    /// Delete a Album
+    /// Delete a Comment
     /// </summary>
     /// <param name="id"></param>
     /// <returns></returns>
@@ -59,11 +59,11 @@ public class AlbumController : CrudControllerApiBase<Album>
     }
 
     /// <summary>
-    /// Get all Album
+    /// Get all Comments
     /// </summary>
     /// <returns></returns>
     [HttpGet]
-    [ProducesResponseType(typeof(Album[]), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(Comment[]), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public override IActionResult GetAll()
     {

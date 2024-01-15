@@ -91,25 +91,4 @@ public class PostsController : CrudControllerApiBase<Post>
             return NotFound();
         return Ok(item);
     }
-
-
-    /// <summary>
-    /// Delete a user's Comment
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="postId"></param>
-    /// <returns></returns>
-    [HttpDelete("{id:int}/comments/{postId:int}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult DeleteComment([FromRoute] int id, [FromRoute] int postId)
-    {
-        var user = Repository.Get(id);
-        if (user == null)
-            return NotFound();
-        var found = _commentRepository.Delete(postId);
-        if (!found)
-            return NotFound();
-        return Ok();
-    }
 }

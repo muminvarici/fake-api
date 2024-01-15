@@ -91,25 +91,4 @@ public class AlbumsController : CrudControllerApiBase<Album>
             return NotFound();
         return Ok(item);
     }
-
-
-    /// <summary>
-    /// Delete a user's photo
-    /// </summary>
-    /// <param name="id"></param>
-    /// <param name="photoId"></param>
-    /// <returns></returns>
-    [HttpDelete("{id:int}/photos/{photoId:int}")]
-    [ProducesResponseType(StatusCodes.Status200OK)]
-    [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public IActionResult DeleteComment([FromRoute] int id, [FromRoute] int photoId)
-    {
-        var album = Repository.Get(id);
-        if (album == null)
-            return NotFound();
-        var found = _photoRepository.Delete(photoId);
-        if (!found)
-            return NotFound();
-        return Ok();
-    }
 }
